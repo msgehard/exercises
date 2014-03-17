@@ -1,6 +1,6 @@
 class RPSGame
 
-  def initialize(user_choice, computer_choice = rand(1..3))
+  def initialize(user_choice, computer_choice)
     @user_choice = user_choice.downcase
     @computer_choice = computer_choice
     @user_wins = 0
@@ -14,20 +14,11 @@ class RPSGame
 
   def play
     case
-      when @computer_choice == 1
-        computer_choice = "rock"
-      when @computer_choice == 2
-        computer_choice = "paper"
-      when @computer_choice == 3
-        computer_choice = "scissors"
-    end
-
-    case
       when @user_choice == "rock"
-        if computer_choice == "scissors"
+        if @computer_choice == "scissors"
           @user_wins += 1
           "Congrats, rock beats scissors, you win!"
-        elsif computer_choice == "paper"
+        elsif @computer_choice == "paper"
           @user_losses += 1
           "Sorry, paper beats rock, you lose."
         else
@@ -35,10 +26,10 @@ class RPSGame
           "It's a tie!"
         end
       when @user_choice == "paper"
-        if computer_choice == "rock"
+        if @computer_choice == "rock"
           @user_wins += 1
           "Congrats, paper beats rock, you win!"
-        elsif computer_choice == "scissors"
+        elsif @computer_choice == "scissors"
           @user_losses += 1
           "Sorry, scissors beats paper, you lose."
         else
@@ -46,10 +37,10 @@ class RPSGame
           "It's a tie!"
         end
       when @user_choice == "scissors"
-        if computer_choice == "paper"
+        if @computer_choice == "paper"
           @user_wins += 1
           "Congrats, scissors beats paper, you win!"
-        elsif computer_choice == "rock"
+        elsif @computer_choice == "rock"
           @user_losses += 1
           "Sorry, rock beats scissors, you lose."
         else
